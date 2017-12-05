@@ -1,0 +1,75 @@
+# The function list for tehProcSim v1, version 2017-12-05-1100
+# This file should be automatically: parsed, build into a .py script, create the condition for , executed
+
+#<NOTAB>    INSTRUCTION_NAME
+#<TAB>          CONTENT1
+#<TAB>          CONTENT2
+#<TAB>          CONTENT3
+#
+# INSTRUCTION_NAME  : how the instruction
+# CONTENT1, 2, 3 : what the instruction actually does
+
+
+#		0. Simulator_Base_Instructions: basest of base functions that represent electronical manipulation of states.
+# 		Those could actually have to be manually build into a different file, 
+#		Then all the instructions will be build be from the base
+
+SET(X)
+
+
+RES(X)
+
+#		ACTUAL PROCESSOR INSTRUCTIONS
+
+#       1. Assorted:
+   NONE
+# Nothing
+
+
+
+#        2. Forcing SET/RESET on registers/memory:
+SET_A
+    SET(A)
+
+SET_B
+    SET(B)
+
+SET_C
+    SET(B)
+
+SET_M
+    SET(M)
+
+RES_A
+    RES(A)
+
+RES_B
+    RES(B)
+
+RES_C
+    RES(C)
+
+RES_M
+    RES(M)
+
+
+
+#        3. Using memory:
+WRITE
+    IF( M == 1 ) : SET( A )
+    IF( M == 0 ) : RES( A )
+
+READ
+    IF( A == 1 ) : SET( M )
+    IF( A == 0 ) : RES( M )
+
+
+#        4. Logic functions on the registers:
+
+NAND_AB
+    IF (NAND(A,B) == 1) : SET( C )
+    IF (NAND(A,B) == 0) : RES( C )
+
+A_TO_B
+    IF (A==1) : SET(B)
+    IF (A==0) : RES(B)

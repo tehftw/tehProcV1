@@ -1,0 +1,39 @@
+tehProcSim v1 - documentation of sorts
+
+v1 is a sort of regression from v2:
+ - v2 had a long(potentially infinite) memory, whereas v1 has only one bit of memory
+
+
+v1 will have the following memory cells:
+
+A - regA: for writing and reading from memory
+B - regB:
+C - regC: for storing the output of logical operations on A and B
+M - memory: for storing, well, the memory thin
+
+Thus, the tehProc-v1 can't have any way to move through memory, only reading and writing.
+
+However, tehProc-v1 will have an implementation of program memory.
+With that, it can be simulated how in electronics it would look when manipulating the program.
+Still, v1 should simply loop infinitely, instead of allowing jumps through the program.
+This means that it can be used as a form of over-engineered logic gate.
+
+
+All of those will be worked as an SR relay/latch, thus the most base functions are:
+SET(X)  : X = 1      # S on the latch
+RES(X)  : X = 0      # R on the latch
+NAND(A,B) is simply the NAND output of A and B
+
+            The ASM instruction set:
+_ Instruction SET is in the file "FunctionsList" _
+
+
+
+Ideas for building it differently:
+    switch everything into functions that will return a binary sequence "1111" , which then will interpreted as memory (ABCM)
+    switch everything into functions that will return a string of base operations: RA: RES(A); SM: SET(M)
+
+
+
+
+
